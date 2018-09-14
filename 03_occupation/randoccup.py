@@ -1,5 +1,5 @@
 '''
-Team InHonorofTHoseInjuredBytheEscalatorIncident
+Team StuyEscalatorsSuck
 Xiaojie(Aaron) Li, Max Millar
 SoftDev1 pd6
 K06 -- Stl/O Divine you Destiny!
