@@ -13,7 +13,7 @@ def also_hello_world():
 
 
 @app.route("/page3")
-def also_hello_world():
+def another_hello_world():
 	print(__name__)
 	return "<a href='/'>and this one? page 3!</a>"
 
