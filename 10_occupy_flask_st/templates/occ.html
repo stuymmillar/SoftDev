@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> heyyyyy</title>
+    </head>
+    <body>
+      <h1>
+	Random Occupation
+      </h1>
+      <div>
+	{{rando}}
+      </div>
+        <table>
+            <tr>
+                <th>Occupation</th>
+                <th>Percentage</th>
+            </tr>
+            {% for job in jobs %}
+            <tr>
+                <td>{{job}}</td>
+                <td>{{jobs[job]}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </body>
+</html>
