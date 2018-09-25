@@ -36,6 +36,10 @@ def weight(list1):
         else:
             index += 1
 
+@app.route('/')
+def intro_page():
+    return '''<h1> Welcome! </h1>
+    <div> <a href="/occupations"> Click here for Occupations table. </a> </div> ''' 
 
 @app.route('/occupations/')
 def render_test():
