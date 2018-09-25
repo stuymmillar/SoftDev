@@ -5,10 +5,11 @@
 from flask import Flask, render_template
 from random import uniform
 import csv
+from util import randoccup
 
 app = Flask(__name__)
 
-csvDict = {}
+'''csvDict = {}
 list1 = []
 
 with open("data/occupations.csv","r") as csvF:
@@ -35,17 +36,20 @@ def weight(list1):
             break
         else:
             index += 1
+'''
 
 @app.route('/')
 def intro_page():
     return '''<h1> Welcome! </h1>
     <div> <a href="/occupations"> Click here for Occupations table. </a> </div> ''' 
 
+csvDict = randoccup.makeCsvDict()
+
 @app.route('/occupations/')
 def render_test():
     return render_template("occ.html",
             keys = list(csvDict.keys()),
-            jobs = csvDict, rando = weight(list1))	
+            jobs = csvDict, rando = weight(csvDict))	
 
 if __name__ == '__main__':
     app.debug = True
