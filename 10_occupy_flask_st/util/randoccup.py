@@ -26,8 +26,8 @@ def makeCsvDict():
                 
 
 # weighted random function takes in a list(of the percentages used earlier) as input
-def weight(dict):
-    liste = sorted(list(dict.keys()))
+def weight(dicto):
+    liste = sorted(list(dicto.keys()))
     total = 0.0 # this will represent the total percentage(99.8)
     for i in liste: # this adds the actual percentages
         total += i
@@ -41,7 +41,7 @@ def weight(dict):
     for i in liste:
         temp += i
         if temp >= rand:
-            return(csvDict[liste[index]])
+            return(dicto[liste[index]])
         else: # otherwise increase the index to the next-to-smallest percentage
             index += 1
 
