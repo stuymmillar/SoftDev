@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {% block title %}
+      Home
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block body %}
+    <h1>Welcome, {{username}}!<h1>
+	<h3>What would you like to do?</h3>
+	<a href="/logout">Logout</a>
+	{% endblock %}
+
+	<footer>&copy; 2018 Therapy Session</footer>
+  </body>
+  </html>
