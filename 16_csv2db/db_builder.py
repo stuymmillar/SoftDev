@@ -1,6 +1,6 @@
-#Clyde "Thluffy" Sinclair
-#SoftDev1 pd0
-#SQLITE3 BASICS
+# Taxes - Max Millar and Tim Marder
+#SoftDev1 pd6
+#K#16 -- No Trouble
 #2018-10-04
 
 import sqlite3   #enable control of an sqlite database
@@ -12,34 +12,34 @@ DB_FILE="discobandit.db"
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
 
-#==========================================================
-#INSERT YOUR POPULATE CODE IN THIS ZONE
-
 def makeTable(filename):
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
-        print(reader.get(0))
-        '''
-        command = "CREATE TABLE " + filename[:len(filename) - 4] + " ("
-        for column in reader[0].keys: 
-            command += column + " BLOB, "
-        c.execute(command[len(command) - 1] + ")")
+        #print(reader.get(0))
+        first = True
         for row in reader:
-            command2 = "INSERT INTO " + filename[:len(filename) - 2] + " VALUES ("
-            for coldata in row.keys:
-                command2 += coldata + ", "
-            c.execute(command2[len(command2) - 2] + ")")
-'''
-            
+            if first:
+                command = "CREATE TABLE " + filename[:len(filename) - 4] + " ("
+                for column in row.keys(): 
+                    command += "'" + column + "' BLOB, "
+                    #print(command[:len(command) - 2] + ")")
+                c.execute(command[:len(command) - 2] + ")")
+                db.commit
+                first = False
+            command2 = "INSERT INTO " + filename[:len(filename) - 4] + " VALUES ("
+            for coldata in row.keys():
+                command2 += "'" + row[coldata] + "', "
+            c.execute(command2[:len(command2) - 2] + ")")
+            db.commit()
         #for row in reader:
             #print(row)
+
 makeTable("peeps.csv")
-
-            
-#command = ""          #build SQL stmt, save as string
-#c.execute(command)    #run SQL statement
-
-#==========================================================
+makeTable("courses.csv")
+c.execute("SELECT * FROM peeps")
+print(c.fetchall())
+c.execute("SELECT * FROM courses")
+print(c.fetchall())
 
 db.commit() #save changes
 db.close()  #close database
