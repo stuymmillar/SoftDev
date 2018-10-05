@@ -16,7 +16,7 @@ def findAvg(stuId):
     sum = 0
     for x in grades:
         sum += int(x[0])
-    sum = sum / len(grades)
+    sum = int(sum / len(grades))
     return sum
 
 def dispStudent(stuId):
@@ -31,10 +31,26 @@ def createTable():
     c.execute("CREATE TABLE peeps_avg(id INTEGER, avg INTEGER)")
     for x in range(1,11):
         avg = findAvg(x)
-        c.execute("INSERT INTO peeps_avg(" + str(x) + ", " + str(avg) + ")")
+        c.execute("INSERT INTO peeps_avg  VALUES(" + str(x) + ", " + str(avg) + ")")
+
+def updateTable():
+    c.execute("DROP TABLE peeps_avg")
+    c.execute("CREATE TABLE peeps_avg(id INTEGER, avg INTEGER)")
+    for x in range(1,11):
+        avg = findAvg(x)
+        print("INSERT INTO peeps_avg(" + str(x) + ", " + str(avg) + ")")
+        c.execute("INSERT INTO peeps_avg VALUES(" + str(x) + ", " + str(avg) + ")")
+
+def addCourse(stu_id, course, grade):
+    print("INSERT INTO courses VALUES('" + course + "', " + str(stu_id) + ", '" + str(grade) + ")")
+    c.execute("INSERT INTO courses VALUES('" + course + "', '" + str(stu_id) + "', '" + str(grade) + "')")
+    updateTable()
     
+        
 dispStudent(1)
-createTable()
+#createTable()
+updateTable()
+addCourse(1, "ballroom", 1000)
 
 db.commit()
 db.close()
