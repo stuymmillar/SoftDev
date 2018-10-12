@@ -18,10 +18,12 @@
 	<p>Logged in as {{username}}</p>
 	{% set url = "/edit/" + entry %}
 	<a href={{url}}> Edit </a>
+	{% set urld = "/delete/" + entry %}
+	<p> <a href={{urld}}> Delete </a> </P>
       </footer>
       {% else %}
       <footer>
-	<p><a href="/login"> Log in to edit </a></p>
+	<p><a href="/login"> Log in to edit or delete</a></p>
       </footer>
       {% endif %}
     </body>

@@ -145,6 +145,24 @@ def findEntry():
         flash("The entry search field must not be left blank.")
         return redirect("/")
     return redirect("/entry/" + query)
+
+@app.route("/delete/<entry>")
+def delEntry(entry):
+    if 'user' not in session:
+        flash("You need to be logged in to delete entries.")
+        return redirect("/")
+    try:
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("DELETE FROM entries where name='" + entry + "';")
+        db.commit()
+        db.close()
+        flash("Success! Entry " + entry + " has been deleted.")
+        return redirect("/")
+    except:
+        flash("Error, entry does not exist.")
+        return redirect("/")
+
     
 if __name__ == '__main__':
     app.debug = True
