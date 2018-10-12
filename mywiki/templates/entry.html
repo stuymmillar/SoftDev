@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{entry}}</title>
+    </head>
+    <body>
+      <h3>
+	<a href="/"> Home </a>
+	<form action="/search">
+	  <input type="text" name="query">
+	  <input type="submit" value="Search for an Entry">
+	</form>
+      </h3>
+      <h1> {{entry}} </h1>
+      <h3> {{body}} </h3>
+      {% if username != 'notlogged' %}
+      <footer>
+	<p>Logged in as {{username}}</p>
+	{% set url = "/edit/" + entry %}
+	<a href={{url}}> Edit </a>
+      </footer>
+      {% else %}
+      <footer>
+	<p><a href="/login"> Log in to edit </a></p>
+      </footer>
+      {% endif %}
+    </body>
+</html>

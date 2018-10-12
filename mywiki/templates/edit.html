@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Edit {{entry}}</title>
+    </head>
+    <body>
+      <h3> <a href="/"> Home </a> </h3>
+      <h1>Edit {{entry}} </h1>
+      {% set url = "/doedit/" + entry %}
+      <form action={{url}} , method="POST">
+	<p> Entry Body: <input type="text" name="nbody" value="{{body}}"> </p>
+	<input type="submit" value="Make Edit">
+      </form>
+    </body>
+</html>

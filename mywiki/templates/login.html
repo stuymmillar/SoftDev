@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<h3> <a href="/"> Home </a> </h3>
+<h1>Login here</h1>
+<form action="/auth">
+  Username:
+  <input type="text" name="username"></input><br>
+  Password:
+  <input type="text" name="password"></input><br>
+  <input type="submit"></input>
+</p>
+{% endblock %}
+{% block search %}
+{% endblock %}
