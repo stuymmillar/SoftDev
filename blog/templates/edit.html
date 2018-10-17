@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Edit Post</title>
+    </head>
+    <body>
+      <h3> <a href="/"> Home </a> </h3>
+      <h1>Edit Post </h1>
+      {% set url = "/doedit/" + user + "/" + post_id %}
+      <form action={{url}} , method="POST">
+	<p> Post Title: <input type="text" name="ntitle" value="{{title}}"> </p>	
+	<p> Post Body: <input type="text" name="nbody" value="{{body}}"> </p>
+	<input type="submit" value="Make Edit">
+      </form>
+    </body>
+</html>

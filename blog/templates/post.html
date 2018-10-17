@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{title}} - {{post_id}}</title>
+    </head>
+    <body>
+      <h3>
+	<a href="/"> Home </a>
+	<form action="/search">
+	  <input type="text" name="query">
+	  <input type="submit" value="Search for a User">
+	</form>
+	<a href="/mypage"> My Blog </a>
+	<a href="/add"> Make a Post </a>
+      </h3>
+      <h1> {{title}} - #{{post_id}} </h1>
+      <h3> {{body}} </h3>
+      {% if this_user %}
+      {% set eurl = "/edit/" + user + "/" + post_id %}
+      {% set durl = "/delete/" + user  + "/" + post_id %}
+      <p> <a href={{eurl}}> Edit this post </a> </p>
+      <p> <a href={{durl}}> Delete this post </a> </p>
+      {% endif %}
+    </body>
+</html>

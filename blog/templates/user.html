@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{user}}'s Blog</title>
+    </head>
+    <body>
+      <h3>
+	<a href="/"> Home </a>
+	<form action="/search">
+	  <input type="text" name="query">
+	  <input type="submit" value="Search for a User">
+	</form>
+	<a href="/mypage"> My Blog </a>
+	<a href="/add"> Make a Post </a>
+      </h3>
+      {% for n in range(length) %}
+      {% set url = "/user/" + user + "/" + ids[n][0]|string %}
+      <h1> <a href={{url}}> {{titles[n][0]}} - #{{ids[n][0]}} </a> </h1>
+      <h3> {{bodies[n][0]}} </h3>
+      {% endfor %}
+    </body>
+</html>
