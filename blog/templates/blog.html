@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{title}} - {{blog_id}}</title>
+    </head>
+    <body>
+      <h3>
+	<a href="/"> Home </a>
+	<form action="/search">
+	  <input type="text" name="query">
+	  <input type="submit" value="Search for a User">
+	</form>
+	<a href="/mypage"> My Page </a>
+	<a href="/add"> Make a Blog </a>
+      </h3>
+      <h1> {{title}} - #{{blog_id}} </h1>
+      <h3> {{description}} </h3>
+      {% for n in range(length) %}
+      {% set url = "/user/" + user + "/" + blog_id + "/" + ids[length - n - 1][0]|string %}
+      <h1> <a href={{url}}> {{titles[length - n - 1][0]}} - #{{ids[length - n - 1][0]}} </a> </h1>
+      <h3> {{bodies[length - n - 1][0]}} </h3>
+      <br> {{times[length - n - 1][0]}}
+      {% endfor %}
+      {% if this_user %}
+      {% set aurl = "/addpost/" + user + "/" + blog_id %}
+      {% set eurl = "/edit/" + user + "/" + blog_id %}
+      {% set durl = "/delete/" + user  + "/" + blog_id %}
+      <p> <a href={{aurl}}> Make a new post </a> </p>
+      <p> <a href={{eurl}}> Edit this blog </a> </p>
+      <p> <a href={{durl}}> Delete this blog </a> </p>
+      {% endif %}
+    </body>
+</html>

@@ -10,14 +10,15 @@
 	  <input type="text" name="query">
 	  <input type="submit" value="Search for a User">
 	</form>
-	<a href="/mypage"> My Blog </a>
-	<a href="/add"> Make a Post </a>
+	<a href="/mypage"> My Page </a>
+	<a href="/add"> Make a Blog </a>
       </h3>
       <h1> {{title}} - #{{post_id}} </h1>
-      <h3> {{body}} </h3>
+      <h3> {{dbody}} </h3>
+      <br> {{time}}
       {% if this_user %}
-      {% set eurl = "/edit/" + user + "/" + post_id %}
-      {% set durl = "/delete/" + user  + "/" + post_id %}
+      {% set eurl = "/editpost/" + user + "/" + blog_id + "/" + post_id %}
+      {% set durl = "/deletepost/" + user  + "/" + blog_id + "/" + post_id %}
       <p> <a href={{eurl}}> Edit this post </a> </p>
       <p> <a href={{durl}}> Delete this post </a> </p>
       {% endif %}

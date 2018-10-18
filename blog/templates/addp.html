@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Make Post</title>
+    </head>
+    <body>
+      <h3> <a href="/"> Home </a> </h3>
+      <h1>Make Post </h1>
+      {% set url = "/makeaddpost/" + user + "/" + blog_id %}
+      <form action={{url}}>
+          <p> Post Name: <input type ="text" name="title"> </p>
+          <p> Post Body: <input type="text" name="nbody"> </p>
+	<input type="submit" value="Make Post">
+      </form>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Edit Blog</title>
+    </head>
+    <body>
+      <h3> <a href="/"> Home </a> </h3>
+      <h1>Edit Blog </h1>
+      {% set url = "/doedit/" + user + "/" + blog_id %}
+      <form action={{url}} , method="POST">
+            <p> Blog Category:
+              <select name='ncategory'>
+                  <option value="Personal">Personal</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Other">Other</option>
+              </select>
+            </p>
+            <p> Blog Title: <input type="text" name="ntitle" value="{{title}}"> </p>
+	        <p> Blog Description: <input type="text" name="ndescription" value="{{description}}"> </p>
+	<input type="submit" value="Make Edit">
+      </form>
+    </body>
+</html>

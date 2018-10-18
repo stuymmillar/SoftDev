@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Make Post</title>
+      <title>Make Blog</title>
     </head>
     <body>
       <h3> <a href="/"> Home </a> </h3>
-      <h1>Make Post </h1>
+      <h1>Make Blog </h1>
       <form action="/makeadd">
-	<p> Entry Name: <input type="text" name="title"> </p>
-	<p> Entry Body: <input type="text" name="nbody"> </p>
-	<input type="submit" value="Make Post">
+          <p> Blog Category:
+                <select name='category'>
+                    <option value="Personal">Personal</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Other">Other</option>
+                </select>
+          </p>
+          <p> Post Name: <input type ="text" name="title"> </p>
+          <p> Post Body: <input type="text" name="ndescription"> </p>
+	<input type="submit" value="Make Blog">
       </form>
     </body>
 </html>
