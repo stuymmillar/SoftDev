@@ -14,7 +14,7 @@
 	<a href="/add"> Make a Blog </a>
       </h3>
       <h1> {{title}} - #{{post_id}} </h1>
-      <h3> {{dbody}} </h3>
+      <p> {{body}} </p>
       <br> {{time}}
       {% if this_user %}
       {% set eurl = "/editpost/" + user + "/" + blog_id + "/" + post_id %}

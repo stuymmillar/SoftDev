@@ -224,6 +224,7 @@ def dispPost(user, blog_id, post_id):
         # print(body)
         title = title[0][0]
         body = body[0][0]
+        print(body)
         time = time[0][0]
         if session['user'] == user:
             print("logged in")
