@@ -279,12 +279,8 @@ def makeEditBlog(user, blog_id):
         c = db.cursor()
         # print(entry)
         c.execute(
-            "UPDATE blog SET category='" + str(ncategory) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
+            "UPDATE blog SET category='" + str(ncategory) + "', description='" + str(ndescription) + "', blog_title='" + str(ntitle) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
                 blog_id) + ";")
-        c.execute("UPDATE blog SET description='" + str(ndescription) + "'  WHERE username='" + str(
-            user) + "' AND blog_id=" + str(blog_id) + ";")
-        c.execute("UPDATE blog SET blog_title='" + str(ntitle) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
-            blog_id) + ";")
         db.commit()
         db.close()
         flash("Success! Blog has been updated.")
@@ -336,9 +332,7 @@ def makeEditPost(user, blog_id, post_id):
         db = sqlite3.connect(DB_FILE)
         c = db.cursor()
         # print(entry)
-        c.execute("UPDATE post SET body='" + str(nbody) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
-            blog_id) + " AND post_id=" + str(post_id) + ";")
-        c.execute("UPDATE post SET post_title='" + str(ntitle) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
+        c.execute("UPDATE post SET body='" + str(nbody) + "', post_title='" + str(ntitle) + "'  WHERE username='" + str(user) + "' AND blog_id=" + str(
             blog_id) + " AND post_id=" + str(post_id) + ";")
         db.commit()
         db.close()
