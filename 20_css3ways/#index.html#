@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- WORK FILE for CSS --> 
+
+<html>
+  <head>
+    <title>foo title</title>
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+  </head>
+
+  <body style="background-color: grey;">
+    <h1 style="background-color: lightgrey; text-align: center; color:white;">foo heading 1</h1>
+    <h3>nav foo</h3>
+    <ul>
+      <li><a href="">dis</a></li>
+      <li><a href="">dat</a></li>
+      <li><a href="">de udda ting</a></li>
+    </ul>
+    <h2>main foo heading</h2>
+    <p>tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk 
+
+      <br>
+      <br>
+
+      Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+
+  </body>
+
+</html>
