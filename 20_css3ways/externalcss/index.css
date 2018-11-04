@@ -1,0 +1,39 @@
+body {
+    background-color:dimgrey;
+    font-family:arial;
+    margin: 10px;
+    padding:0;
+    }
+
+h1 {
+    background-color:lightgrey;
+    text-align: center;
+    color:white;
+    margin:0;
+    padding:0;
+    }
+
+#main {
+    background-color:grey;
+    padding-left:10px;
+    float:left;
+    }
+
+#nav {
+    float:left;
+    display:inline-block;
+    width:25%;
+    }
+
+#body {
+    float:left;
+    display:inline;
+    width:75%;
+    }
+
+#copyright {
+    text-align: right;
+    background-color: #505050;
+    color:grey;
+    padding:5px;
+    }
