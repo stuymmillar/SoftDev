@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="text" id="text"></input>
+  <input type="submit" value="search" id="button"></input>
+  <ul id="results"></ul>
+  <script>
+    var search = function(e){
+      var list = document.getElementById("results");
+      while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
+      };
+      var ptext = document.getElementById("text").value;
+      var text = ptext.replace(" ","+");
+      var url = "https://www.googleapis.com/books/v1/volumes?q=" + text + "&key=AIzaSyA0JJISuDqe3zwyhWFExX6Ltms25gBUKlo";
+      console.log(url);
+      $.getJSON(url, function(data) {
+        for(var x = 0; x < 10; x++) {
+          var disp = document.createElement("li");
+          var ret = data["items"][x]["volumeInfo"]["title"] + "<br> by " + data["items"][x]["volumeInfo"]["authors"][0] + "<br> <img src='" + data["items"][x]["volumeInfo"]["imageLinks"]["thumbnail"] + "'>"
+          disp.innerHTML = "<a href='/book/" + data["items"][x]["id"] + "'> " + ret + "</a>";
+          list.appendChild(disp);
+        };
+      });
+    };
+    console.log("hey");
+    var button = document.getElementById("button");
+    button.addEventListener('click', search);
+  </script>
+</body>
+</html>
